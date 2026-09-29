@@ -1,0 +1,150 @@
+ :root {
+     --bg-color: #121212;
+     --card-bg: #1e1e1e;
+     --accent-gold: #d4a359;
+     --text-main: #efe6d5;
+     --text-muted: #a0a0a0;
+     --border-color: #2a2a2a;
+ }
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ body {
+     background-color: var(--bg-color);
+     color: var(--text-main);
+     font-family: 'Montserrat', sans-serif;
+     line-height: 1.5;
+     padding-bottom: 40px;
+ }
+
+ header {
+     text-align: center;
+     padding: 30px 20px 20px;
+     border-bottom: 1px solid var(--border-color);
+     background: linear-gradient(180deg, rgba(212, 163, 89, 0.1) 0%, rgba(18, 18, 18, 1) 100%);
+ }
+
+ .logo {
+     font-size: 32px;
+     font-weight: 700;
+     letter-spacing: 4px;
+     color: #ffffff;
+     text-transform: uppercase;
+ }
+
+ .subtitle {
+     font-size: 14px;
+     letter-spacing: 2px;
+     color: var(--accent-gold);
+     margin-top: 4px;
+     text-transform: lowercase;
+ }
+
+ /* Навігація категорій */
+ .categories-nav {
+     display: flex;
+     overflow-x: auto;
+     gap: 10px;
+     padding: 15px 20px;
+     position: sticky;
+     top: 0;
+     background-color: var(--bg-color);
+     z-index: 100;
+     border-bottom: 1px solid var(--border-color);
+     scrollbar-width: none;
+ }
+
+ .categories-nav::-webkit-scrollbar {
+     display: none;
+ }
+
+ .cat-btn {
+     background: var(--card-bg);
+     color: var(--text-main);
+     border: 1px solid var(--border-color);
+     padding: 8px 16px;
+     border-radius: 20px;
+     white-space: nowrap;
+     font-size: 14px;
+     text-decoration: none;
+     transition: all 0.3s ease;
+ }
+
+ .cat-btn:hover,
+ .cat-btn.active {
+     background: var(--accent-gold);
+     color: #121212;
+     font-weight: 600;
+ }
+
+ /* Контейнер меню */
+ .container {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 20px;
+ }
+
+ .section-title {
+     font-size: 22px;
+     text-transform: uppercase;
+     letter-spacing: 2px;
+     color: var(--accent-gold);
+     margin: 30px 0 15px 0;
+     padding-bottom: 5px;
+     border-bottom: 1px solid var(--accent-gold);
+ }
+
+ .menu-item {
+     background-color: var(--card-bg);
+     border-radius: 10px;
+     padding: 15px;
+     margin-bottom: 12px;
+     border: 1px solid var(--border-color);
+ }
+
+ .item-header {
+     display: flex;
+     justify-content: space-between;
+     align-items: baseline;
+     margin-bottom: 6px;
+ }
+
+ .item-title {
+     font-size: 16px;
+     font-weight: 600;
+     text-transform: uppercase;
+     color: #ffffff;
+     flex: 1;
+     padding-right: 10px;
+ }
+
+ .item-price {
+     font-size: 16px;
+     font-weight: 700;
+     color: var(--accent-gold);
+     white-space: nowrap;
+ }
+
+ .item-weight {
+     font-size: 12px;
+     color: var(--text-muted);
+     margin-bottom: 6px;
+ }
+
+ .item-desc {
+     font-size: 13px;
+     color: var(--text-muted);
+ }
+
+ footer {
+     text-align: center;
+     padding: 20px;
+     font-size: 12px;
+     color: var(--text-muted);
+     border-top: 1px solid var(--border-color);
+     margin-top: 40px;
+ }
