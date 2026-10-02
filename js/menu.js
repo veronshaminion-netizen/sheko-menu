@@ -1,29 +1,31 @@
 const categoryButtons = document.querySelectorAll('.cat-btn');
 const sections = document.querySelectorAll('section');
 
+// Натискання на кнопку
 categoryButtons.forEach(button => {
     button.addEventListener('click', function (event) {
         event.preventDefault();
 
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        // прибираємо active з усіх кнопок
+        // Прибираємо active з усіх кнопок
         categoryButtons.forEach(btn => {
             btn.classList.remove('active');
+            btn.blur(); // прибирає focus з попередньої кнопки
         });
 
-        // додаємо active натиснутій
+        // Робимо активною натиснуту кнопку
         this.classList.add('active');
 
-        // плавно переходимо до секції
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
+        // Переходимо до потрібного розділу
+        const target = document.querySelector(this.getAttribute('href'));
+
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
         });
     });
 });
 
-// Визначаємо активну категорію під час прокрутки
+// Визначення активної категорії при прокручуванні
 window.addEventListener('scroll', () => {
     let currentSection = '';
 
@@ -35,13 +37,19 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    if (currentSection) {
-        categoryButtons.forEach(button => {
-            button.classList.remove('active');
+    // Прибираємо active абсолютно з усіх кнопок
+    categoryButtons.forEach(button => {
+        button.classList.remove('active');
+    });
 
-            if (button.getAttribute('href') === `#${currentSection}`) {
-                button.classList.add('active');
-            }
-        });
+    // Додаємо active тільки поточній категорії
+    if (currentSection) {
+        const activeButton = document.querySelector(
+            `.cat-btn[href="#${currentSection}"]`
+        );
+
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
     }
 });
