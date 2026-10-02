@@ -74,11 +74,25 @@
      transition: all 0.3s ease;
  }
 
- .cat-btn:hover,
+ /* Активний стан контролюється ТІЛЬКИ класом .active */
  .cat-btn.active {
-     background: var(--accent-gold);
-     color: #121212;
+     background: var(--accent-gold) !important;
+     color: #121212 !important;
      font-weight: 600;
+ }
+
+ /* Ховер працює тільки коли кнопка НЕ активна, і тільки на пристроях з мишкою */
+ @media (hover: hover) {
+     .cat-btn:not(.active):hover {
+         background: rgba(212, 163, 89, 0.2);
+         color: var(--accent-gold);
+     }
+ }
+
+ /* Прибираємо залипання фокусу та ховера після кліку */
+ .cat-btn:focus,
+ .cat-btn:active {
+     outline: none;
  }
 
  /* Контейнер меню */
@@ -96,6 +110,12 @@
      margin: 30px 0 15px 0;
      padding-bottom: 5px;
      border-bottom: 1px solid var(--accent-gold);
+ }
+
+ /* Вказуємо відступ зверху при плавному скролі */
+ section {
+     scroll-margin-top: 80px;
+     /* Регулюйте значення під висоту вашої панелі навігації */
  }
 
  .menu-item {
